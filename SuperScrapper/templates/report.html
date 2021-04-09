@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>JobSearch</title>
+    <style>
+      section{
+        display:grid;
+        gap:20px;
+        grid-template-columns:repeat(4, 1fr);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Searching Results...</h1>
+    <h3>{{result_number}} results by {{searchBy}} </h3>
+    <a href="/export?word={{searchBy}}">Export to CSV</a>
+    <section>
+      <h4>title</h4>
+      <h4>company</h4>
+      <h4>location</h4>
+      <h4>link</h4>
+      {% for job in jobs %}
+        <span>{{job.title}}</span>
+        <span>{{job.company}}</span>
+        <span>{{job.location}}</span>
+        <a href="{{job.link}}" target="_blank" rel="noopener">apply</a>
+      {% endfor %}
+    </section>
+  </body>
+</html>
